@@ -1,0 +1,46 @@
+.main-container {
+    margin: 1rem;
+}
+
+.navbar-container {
+    width: 100%;
+}
+
+.home-container {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+}
+
+.navbar-bg {
+    background-color: #ffecb5
+}
+
+.navbar-brand {
+    color: #1976d2 !important;
+    font-size: 30px !important;
+}
+
+.navbar-item {
+    color: black !important;
+    font-size: 20px;
+    padding: 1rem !important;
+}
+
+.navbar-item.active {
+    transform: scale(1.0);
+    border: 1px solid brown;
+    border-radius: 25px;
+}
+
+.home-choice {
+    padding: 20px;
+    height: 100px;
+    width: 100%;
+}
+
+.center {
+    left: 0;
+    right: 0;
+    margin: auto;
+    text-align: center;
+}
