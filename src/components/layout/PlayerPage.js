@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './../css/style.css';
 
-export default class Score extends Component {
+export default class PlayerPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -12,7 +12,7 @@ export default class Score extends Component {
     render() {
         return (
             <>
-                Score
+                Player
             </>
         )
     }

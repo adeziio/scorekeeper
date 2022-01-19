@@ -55,7 +55,7 @@ export default class NavBar extends Component {
                     <Navbar className="navbar-bg" variant="light" expand="lg" >
                         <Container>
                             <Navbar.Brand><Nav.Link className="navbar-brand" onClick={this.setCurrentPageHome}>Scorekeeper <EmojiEventsOutlined /></Nav.Link></Navbar.Brand>
-                            <Navbar.Toggle id="collapse-on-click" aria-controls="basic-navbar-nav" collapsed={false} />
+                            <Navbar.Toggle id="collapse-on-click" aria-controls="basic-navbar-nav" />
                             <Navbar.Collapse id="basic-navbar-nav">
                                 <Nav className="me-auto">
                                     <Nav.Link className={`navbar-item ${currentPage === "score" ? "active" : ""}`} onClick={this.setCurrentPageScore}>Score</Nav.Link>
