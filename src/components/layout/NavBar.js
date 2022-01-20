@@ -41,8 +41,8 @@ export default class NavBar extends Component {
         this.collapseNavbar()
     }
 
-    setCurrentPageBracket = () => {
-        this.props.setCurrentPage("bracket")
+    setCurrentPageLeaderboard = () => {
+        this.props.setCurrentPage("leaderboard")
         this.collapseNavbar()
     }
 
@@ -60,7 +60,7 @@ export default class NavBar extends Component {
                                 <Nav className="me-auto">
                                     <Nav.Link className={`navbar-item ${currentPage === "score" ? "active" : ""}`} onClick={this.setCurrentPageScore}>Score</Nav.Link>
                                     <Nav.Link className={`navbar-item ${currentPage === "player" ? "active" : ""}`} onClick={this.setCurrentPagePlayer}>Players</Nav.Link>
-                                    <Nav.Link className={`navbar-item ${currentPage === "bracket" ? "active" : ""}`} onClick={this.setCurrentPageBracket}>Bracket</Nav.Link>
+                                    <Nav.Link className={`navbar-item ${currentPage === "leaderboard" ? "active" : ""}`} onClick={this.setCurrentPageLeaderboard}>Leaderboard</Nav.Link>
                                 </Nav>
                             </Navbar.Collapse>
                         </Container>

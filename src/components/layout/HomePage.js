@@ -18,8 +18,8 @@ export default class HomePage extends Component {
         this.props.setCurrentPage("player")
     }
 
-    setCurrentPageBracket = () => {
-        this.props.setCurrentPage("bracket")
+    setCurrentPageLeaderboard = () => {
+        this.props.setCurrentPage("leaderboard")
     }
 
     render() {
@@ -35,12 +35,12 @@ export default class HomePage extends Component {
                             </Grid>
                             <Grid container item spacing={3} justifyContent="center" alignItems="center">
                                 <Grid item xs={15}>
-                                    <Button variant="outlined" className="home-choice" onClick={this.setCurrentPagePlayer}>Player</Button>
+                                    <Button variant="outlined" className="home-choice" onClick={this.setCurrentPagePlayer}>Players</Button>
                                 </Grid>
                             </Grid>
                             <Grid container item spacing={3} justifyContent="center" alignItems="center">
                                 <Grid item xs={15}>
-                                    <Button variant="outlined" className="home-choice" onClick={this.setCurrentPageBracket}>Bracket</Button>
+                                    <Button variant="outlined" className="home-choice" onClick={this.setCurrentPageLeaderboard}>Leaderboard</Button>
                                 </Grid>
                             </Grid>
                         </Grid>

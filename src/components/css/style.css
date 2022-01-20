@@ -43,3 +43,27 @@
     margin: auto;
     text-align: center;
 }
+
+.player-input {
+    margin: 1rem !important;
+    padding: 1rem;
+}
+
+.add-player-bttn {
+    padding: 1rem !important;
+    margin: 1rem !important;
+}
+
+.remove-player-bttn {
+    width: 10%;
+    float: right;
+}
+
+.error-msg {
+    color: red;
+    display: block;
+}
+
+.playerlist-container {
+    margin: 2rem;
+}
