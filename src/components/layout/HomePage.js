@@ -10,12 +10,12 @@ export default class HomePage extends Component {
         }
     };
 
-    setCurrentPageScore = () => {
-        this.props.setCurrentPage("score")
-    }
-
     setCurrentPagePlayer = () => {
         this.props.setCurrentPage("player")
+    }
+
+    setCurrentPageScore = () => {
+        this.props.setCurrentPage("score")
     }
 
     setCurrentPageLeaderboard = () => {
@@ -30,12 +30,12 @@ export default class HomePage extends Component {
                         <Grid container spacing={1} >
                             <Grid container item spacing={3} justifyContent="center" alignItems="center">
                                 <Grid item xs={15}>
-                                    <Button variant="outlined" className="home-choice" onClick={this.setCurrentPageScore}>Score</Button>
+                                    <Button variant="outlined" className="home-choice" onClick={this.setCurrentPagePlayer}>Players</Button>
                                 </Grid>
                             </Grid>
                             <Grid container item spacing={3} justifyContent="center" alignItems="center">
                                 <Grid item xs={15}>
-                                    <Button variant="outlined" className="home-choice" onClick={this.setCurrentPagePlayer}>Players</Button>
+                                    <Button variant="outlined" className="home-choice" onClick={this.setCurrentPageScore}>Score</Button>
                                 </Grid>
                             </Grid>
                             <Grid container item spacing={3} justifyContent="center" alignItems="center">

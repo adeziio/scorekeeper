@@ -43,7 +43,7 @@ export default class PlayerPage extends Component {
                     ...prevState.players,
                     {
                         "name": this.state.input,
-                        "score": 0
+                        "matches_won": 0
                     }
                 ],
                 error: false

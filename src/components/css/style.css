@@ -37,6 +37,34 @@
     width: 100%;
 }
 
+.score-container {
+    margin-top: 3rem;
+}
+
+.score-choice-increment {
+    font-size: 60px !important;
+    padding: 20px;
+    height: 350px;
+    width: 100%;
+    margin-top: 1rem !important;
+}
+
+.score-choice-decrement {
+    font-size: 20px !important;
+    padding: 15px;
+    height: 30px;
+    width: 40%;
+    margin-top: 1rem !important;
+}
+
+.score-choice-reset {
+    font-size: 15px !important;
+    padding: 15px;
+    height: 30px;
+    width: 40%;
+    margin-top: 1rem !important;
+}
+
 .center {
     left: 0;
     right: 0;

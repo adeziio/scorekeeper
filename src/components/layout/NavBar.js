@@ -31,13 +31,13 @@ export default class NavBar extends Component {
         this.collapseNavbar()
     }
 
-    setCurrentPageScore = () => {
-        this.props.setCurrentPage("score")
+    setCurrentPagePlayer = () => {
+        this.props.setCurrentPage("player")
         this.collapseNavbar()
     }
 
-    setCurrentPagePlayer = () => {
-        this.props.setCurrentPage("player")
+    setCurrentPageScore = () => {
+        this.props.setCurrentPage("score")
         this.collapseNavbar()
     }
 
@@ -58,8 +58,8 @@ export default class NavBar extends Component {
                             <Navbar.Toggle id="collapse-on-click" aria-controls="basic-navbar-nav" />
                             <Navbar.Collapse id="basic-navbar-nav">
                                 <Nav className="me-auto">
-                                    <Nav.Link className={`navbar-item ${currentPage === "score" ? "active" : ""}`} onClick={this.setCurrentPageScore}>Score</Nav.Link>
                                     <Nav.Link className={`navbar-item ${currentPage === "player" ? "active" : ""}`} onClick={this.setCurrentPagePlayer}>Players</Nav.Link>
+                                    <Nav.Link className={`navbar-item ${currentPage === "score" ? "active" : ""}`} onClick={this.setCurrentPageScore}>Score</Nav.Link>
                                     <Nav.Link className={`navbar-item ${currentPage === "leaderboard" ? "active" : ""}`} onClick={this.setCurrentPageLeaderboard}>Leaderboard</Nav.Link>
                                 </Nav>
                             </Navbar.Collapse>

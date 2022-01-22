@@ -12,6 +12,16 @@ export default class Main extends Component {
         this.state = {
             currentPage: "home",
             players: [],
+            playerPair: {
+                player1: {
+                    "name": "",
+                    "score": 0
+                },
+                player2: {
+                    "name": "",
+                    "score": 0
+                }
+            }
         }
     };
 
@@ -27,8 +37,14 @@ export default class Main extends Component {
         })
     }
 
+    setPlayerPair = (newPlayerPair) => {
+        this.setState({
+            playerPair: newPlayerPair
+        })
+    }
+
     render() {
-        const { currentPage, players } = this.state;
+        const { currentPage, players, playerPair } = this.state;
         console.log(this.state)
 
         return (
@@ -36,7 +52,7 @@ export default class Main extends Component {
                 <NavBar currentPage={currentPage} setCurrentPage={this.setCurrentPage} />
                 <div className="main-container">
                     {currentPage === "home" ? <HomePage currentPage={currentPage} setCurrentPage={this.setCurrentPage} /> : null}
-                    {currentPage === "score" ? <ScorePage /> : null}
+                    {currentPage === "score" ? <ScorePage players={players} playerPair={playerPair} setPlayerPair={this.setPlayerPair} /> : null}
                     {currentPage === "player" ? <PlayerPage players={players} setPlayers={this.setPlayers} /> : null}
                     {currentPage === "leaderboard" ? <LeaderBoardPage /> : null}
                 </div>
