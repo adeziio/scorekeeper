@@ -36,8 +36,8 @@ export default class NavBar extends Component {
         this.collapseNavbar()
     }
 
-    setCurrentPageScore = () => {
-        this.props.setCurrentPage("score")
+    setCurrentPageMatch = () => {
+        this.props.setCurrentPage("match")
         this.collapseNavbar()
     }
 
@@ -59,7 +59,7 @@ export default class NavBar extends Component {
                             <Navbar.Collapse id="basic-navbar-nav">
                                 <Nav className="me-auto">
                                     <Nav.Link className={`navbar-item ${currentPage === "player" ? "active" : ""}`} onClick={this.setCurrentPagePlayer}>Players</Nav.Link>
-                                    <Nav.Link className={`navbar-item ${currentPage === "score" ? "active" : ""}`} onClick={this.setCurrentPageScore}>Score</Nav.Link>
+                                    <Nav.Link className={`navbar-item ${currentPage === "match" ? "active" : ""}`} onClick={this.setCurrentPageMatch}>Match</Nav.Link>
                                     <Nav.Link className={`navbar-item ${currentPage === "leaderboard" ? "active" : ""}`} onClick={this.setCurrentPageLeaderboard}>Leaderboard</Nav.Link>
                                 </Nav>
                             </Navbar.Collapse>

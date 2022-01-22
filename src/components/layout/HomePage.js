@@ -14,8 +14,8 @@ export default class HomePage extends Component {
         this.props.setCurrentPage("player")
     }
 
-    setCurrentPageScore = () => {
-        this.props.setCurrentPage("score")
+    setCurrentPageMatch = () => {
+        this.props.setCurrentPage("match")
     }
 
     setCurrentPageLeaderboard = () => {
@@ -35,7 +35,7 @@ export default class HomePage extends Component {
                             </Grid>
                             <Grid container item spacing={3} justifyContent="center" alignItems="center">
                                 <Grid item xs={15}>
-                                    <Button variant="outlined" className="home-choice" onClick={this.setCurrentPageScore}>Score</Button>
+                                    <Button variant="outlined" className="home-choice" onClick={this.setCurrentPageMatch}>Match</Button>
                                 </Grid>
                             </Grid>
                             <Grid container item spacing={3} justifyContent="center" alignItems="center">

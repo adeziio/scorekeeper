@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './../css/style.css';
 import NavBar from './NavBar';
 import HomePage from './HomePage';
-import ScorePage from './ScorePage';
+import MatchPage from './MatchPage';
 import PlayerPage from './PlayerPage';
 import LeaderBoardPage from './LeaderBoardPage';
 
@@ -86,8 +86,8 @@ export default class Main extends Component {
                 <NavBar currentPage={currentPage} setCurrentPage={this.setCurrentPage} />
                 <div className="main-container">
                     {currentPage === "home" ? <HomePage currentPage={currentPage} setCurrentPage={this.setCurrentPage} /> : null}
-                    {currentPage === "score" ? <ScorePage players={players} playerPair={playerPair} setPlayerPair={this.setPlayerPair} recordMatch={this.recordMatch} /> : null}
-                    {currentPage === "player" ? <PlayerPage players={players} setPlayers={this.setPlayers} /> : null}
+                    {currentPage === "match" ? <MatchPage players={players} playerPair={playerPair} setPlayerPair={this.setPlayerPair} recordMatch={this.recordMatch} /> : null}
+                    {currentPage === "player" ? <PlayerPage setCurrentPage={this.setCurrentPage} players={players} setPlayers={this.setPlayers} /> : null}
                     {currentPage === "leaderboard" ? <LeaderBoardPage players={players} /> : null}
                 </div>
             </>

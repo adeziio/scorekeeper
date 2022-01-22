@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './../css/style.css';
 import { Grid, Button, Box, FormControl, InputLabel, Select, MenuItem } from '@mui/material';
 
-export default class ScorePage extends Component {
+export default class MatchPage extends Component {
     constructor(props) {
         super(props);
         this.state = {

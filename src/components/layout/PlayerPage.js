@@ -13,6 +13,10 @@ export default class PlayerPage extends Component {
         }
     };
 
+    setCurrentPageMatch = () => {
+        this.props.setCurrentPage("match");
+    }
+
     _handleKeyDown = (e) => {
         if (e.key === 'Enter') {
             this.addPlayer();
@@ -94,6 +98,7 @@ export default class PlayerPage extends Component {
                         </Stack>
                     </Container>
                     : null}
+                <Button className="go-to-score-bttn" variant="contained" onClick={this.setCurrentPageMatch}>Start Match</Button>
             </>
         )
     }
