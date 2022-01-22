@@ -17,22 +17,34 @@ export default class ScorePage extends Component {
         }
     };
 
-    changePlayer1 = (e) => {
-        this.setState({
-            player1: {
-                "name": e.target.value,
-                "score": 0
-            }
-        }, () => { this.updatePlayerPair() })
+    changePlayer1Name = (e) => {
+        if (e.target.value !== this.state.player2.name) {
+            this.setState({
+                player1: {
+                    "name": e.target.value,
+                    "score": 0
+                },
+                player2: {
+                    "name": this.state.player2.name,
+                    "score": 0
+                }
+            }, () => { this.updatePlayerPair() })
+        }
     }
 
-    changePlayer2 = (e) => {
-        this.setState({
-            player2: {
-                "name": e.target.value,
-                "score": 0
-            }
-        }, () => { this.updatePlayerPair() })
+    changePlayer2Name = (e) => {
+        if (e.target.value !== this.state.player1.name) {
+            this.setState({
+                player1: {
+                    "name": this.state.player1.name,
+                    "score": 0
+                },
+                player2: {
+                    "name": e.target.value,
+                    "score": 0
+                }
+            }, () => { this.updatePlayerPair() })
+        }
     }
 
     updatePlayerPair = () => {
@@ -43,52 +55,95 @@ export default class ScorePage extends Component {
     }
 
     incrementPlayer1Score = () => {
-        this.setState(prevState => ({
-            player1: {
-                "name": prevState.player1.name,
-                "score": prevState.player1.score + 1
-            }
-        }), () => { this.updatePlayerPair() });
+        if (this.state.player1.name !== "" && this.state.player2.name !== "") {
+            this.setState(prevState => ({
+                player1: {
+                    "name": prevState.player1.name,
+                    "score": prevState.player1.score + 1
+                }
+            }), () => { this.updatePlayerPair() });
+        }
     }
 
     incrementPlayer2Score = () => {
-        this.setState(prevState => ({
-            player2: {
-                "name": prevState.player2.name,
-                "score": prevState.player2.score + 1
-            }
-        }), () => { this.updatePlayerPair() });
+        if (this.state.player1.name !== "" && this.state.player2.name !== "") {
+            this.setState(prevState => ({
+                player2: {
+                    "name": prevState.player2.name,
+                    "score": prevState.player2.score + 1
+                }
+            }), () => { this.updatePlayerPair() });
+        }
     }
 
     decrementPlayer1Score = () => {
-        this.setState(prevState => ({
-            player1: {
-                "name": prevState.player1.name,
-                "score": prevState.player1.score !== 0 ? prevState.player1.score - 1 : prevState.player1.score
-            }
-        }), () => { this.updatePlayerPair() });
+        if (this.state.player1.name !== "" && this.state.player2.name !== "" && this.state.player1.score !== 0) {
+            this.setState(prevState => ({
+                player1: {
+                    "name": prevState.player1.name,
+                    "score": prevState.player1.score !== 0 ? prevState.player1.score - 1 : prevState.player1.score
+                }
+            }), () => { this.updatePlayerPair() });
+        }
     }
 
     decrementPlayer2Score = () => {
-        this.setState(prevState => ({
-            player2: {
-                "name": prevState.player2.name,
-                "score": prevState.player2.score !== 0 ? prevState.player2.score - 1 : prevState.player2.score
-            }
-        }), () => { this.updatePlayerPair() });
+        if (this.state.player1.name !== "" && this.state.player2.name !== "" && this.state.player2.score !== 0) {
+            this.setState(prevState => ({
+                player2: {
+                    "name": prevState.player2.name,
+                    "score": prevState.player2.score !== 0 ? prevState.player2.score - 1 : prevState.player2.score
+                }
+            }), () => { this.updatePlayerPair() });
+        }
     }
 
     resetPlayersScore = () => {
-        this.setState(prevState => ({
-            player1: {
-                "name": prevState.player1.name,
-                "score": 0
-            },
-            player2: {
-                "name": prevState.player2.name,
-                "score": 0
-            }
-        }), () => { this.updatePlayerPair() });
+        if (this.state.player1.name !== "" && this.state.player2.name !== "" && (this.state.player1.score !== 0 || this.state.player2.score !== 0)) {
+            this.setState(prevState => ({
+                player1: {
+                    "name": prevState.player1.name,
+                    "score": 0
+                },
+                player2: {
+                    "name": prevState.player2.name,
+                    "score": 0
+                }
+            }), () => { this.updatePlayerPair() });
+        }
+    }
+
+    resetAllFields = () => {
+        if (this.state.player1.name !== "" && this.state.player2.name !== "" && (this.state.player1.score !== 0 || this.state.player2.score !== 0)) {
+            this.setState({
+                player1: {
+                    "name": "",
+                    "score": 0
+                },
+                player2: {
+                    "name": "",
+                    "score": 0
+                }
+            }, () => { this.updatePlayerPair() });
+        }
+    }
+
+    recordMatch = () => {
+        if (this.state.player1.name !== "" && this.state.player2.name !== "" && (this.state.player1.score !== 0 || this.state.player2.score !== 0)) {
+            this.setState({
+                player1: {
+                    "name": "",
+                    "score": 0
+                },
+                player2: {
+                    "name": "",
+                    "score": 0
+                }
+            })
+            this.updatePlayerPair();
+            this.props.recordMatch();
+            this.resetAllFields();
+        }
     }
 
     render() {
@@ -104,7 +159,7 @@ export default class ScorePage extends Component {
                                 <Select
                                     value={playerPair.player1.name}
                                     label="Player 1"
-                                    onChange={this.changePlayer1}
+                                    onChange={this.changePlayer1Name}
                                 >
                                     {
                                         players.map((player, index) => {
@@ -127,7 +182,7 @@ export default class ScorePage extends Component {
                                 <Select
                                     value={playerPair.player2.name}
                                     label="Player 2"
-                                    onChange={this.changePlayer2}
+                                    onChange={this.changePlayer2Name}
                                 >
                                     {
                                         players.map((player, index) => {
@@ -149,10 +204,10 @@ export default class ScorePage extends Component {
                 <Box sx={{ flexGrow: 1 }} >
                     <Grid container spacing={2} columns={16}>
                         <Grid item xs={8}>
-                            <Button variant="outlined" className="score-choice-increment" onClick={this.incrementPlayer1Score}>{playerPair.player1.score}</Button>
+                            <Button variant="outlined" className={`score-choice-increment ${playerPair.player1.score > playerPair.player2.score ? "winning" : "neutral"}`} onClick={this.incrementPlayer1Score}>{playerPair.player1.score}</Button>
                         </Grid>
                         <Grid item xs={8}>
-                            <Button variant="outlined" className="score-choice-increment" onClick={this.incrementPlayer2Score}>{playerPair.player2.score}</Button>
+                            <Button variant="outlined" className={`score-choice-increment ${playerPair.player2.score > playerPair.player1.score ? "winning" : "neutral"}`} onClick={this.incrementPlayer2Score}>{playerPair.player2.score}</Button>
                         </Grid>
                     </Grid>
                 </Box>
@@ -166,6 +221,13 @@ export default class ScorePage extends Component {
                         </Grid>
                         <Grid item xs={3}>
                             <Button variant="outlined" className="score-choice-decrement" onClick={this.decrementPlayer2Score}>{"-"}</Button>
+                        </Grid>
+                    </Grid>
+                </Box>
+                <Box sx={{ flexGrow: 1 }} >
+                    <Grid container spacing={2} columns={16}>
+                        <Grid item xs={16}>
+                            <Button variant="outlined" className="score-choice-record" onClick={this.recordMatch}>{"Record Match"}</Button>
                         </Grid>
                     </Grid>
                 </Box>

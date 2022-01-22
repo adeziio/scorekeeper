@@ -38,7 +38,7 @@
 }
 
 .score-container {
-    margin-top: 3rem;
+    margin-top: 1rem;
 }
 
 .score-choice-increment {
@@ -49,20 +49,36 @@
     margin-top: 1rem !important;
 }
 
+.score-choice-increment.winning {
+    background-color: lightgreen;
+}
+
+.score-choice-increment.neutral {
+    background-color: white;
+}
+
 .score-choice-decrement {
-    font-size: 20px !important;
+    font-size: 25px !important;
     padding: 15px;
-    height: 30px;
+    height: 40px;
     width: 40%;
     margin-top: 1rem !important;
 }
 
 .score-choice-reset {
-    font-size: 15px !important;
+    font-size: 25px !important;
     padding: 15px;
-    height: 30px;
+    height: 40px;
     width: 40%;
     margin-top: 1rem !important;
+}
+
+.score-choice-record {
+    font-size: 25px !important;
+    padding: 15px;
+    height: 40px;
+    width: 100%;
+    margin-top: 2rem !important;
 }
 
 .center {
@@ -94,4 +110,35 @@
 
 .playerlist-container {
     margin: 2rem;
+}
+
+.leaderboard-container {
+    margin: 1rem;
+}
+
+.leaderboard-header {
+    font-size: 30px;
+}
+
+.trophy {
+    margin-right: 1rem;
+}
+
+.trophy-first {
+    color: gold;
+}
+
+.trophy-second {
+    color: silver;
+}
+
+.trophy-third {
+    color: orange;
+}
+
+.leaderboard-expand-item {
+    float: left;
+    display: block;
+    position: relative;
+    clear: both;
 }

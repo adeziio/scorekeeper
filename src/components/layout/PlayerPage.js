@@ -43,7 +43,9 @@ export default class PlayerPage extends Component {
                     ...prevState.players,
                     {
                         "name": this.state.input,
-                        "matches_won": 0
+                        "matches": [],
+                        "matches_won": 0,
+                        "matches_lost": 0
                     }
                 ],
                 error: false
@@ -69,7 +71,6 @@ export default class PlayerPage extends Component {
 
     render() {
         const { input, players, error } = this.state;
-
         const Item = styled(Paper)(({ theme }) => ({
             ...theme.typography.body2,
             padding: theme.spacing(1),
@@ -87,9 +88,7 @@ export default class PlayerPage extends Component {
                         <Stack direction="column" spacing={3}>
                             {players.map((player, index) => {
                                 return (
-                                    <>
-                                        <Item key={index}>{player.name} <Button className="remove-player-bttn" variant="contained" onClick={() => { this.removePlayer(player.name) }}>Remove</Button></Item>
-                                    </>
+                                    <Item key={`${player.name}-${index}`}>{player.name} <Button className="remove-player-bttn" variant="contained" onClick={() => { this.removePlayer(player.name) }}>Remove</Button></Item>
                                 )
                             })}
                         </Stack>
