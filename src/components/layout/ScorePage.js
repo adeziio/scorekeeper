@@ -148,6 +148,8 @@ export default class ScorePage extends Component {
 
     render() {
         const { players, playerPair } = this.props;
+        console.log(playerPair.player1.score, playerPair.player2.score)
+
 
         return (
             <>
