@@ -45,7 +45,7 @@ export default class LeaderBoardPage extends Component {
                             })}
                         </Stack>
                     </Container>
-                    : null
+                    : <div>None</div>
                 }
 
                 <div className="leaderboard-header">Participants</div>
@@ -76,7 +76,7 @@ export default class LeaderBoardPage extends Component {
                             })}
                         </Stack>
                     </Container>
-                    : null
+                    : <div>None</div>
                 }
             </>
         )
