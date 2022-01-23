@@ -208,8 +208,8 @@ export default class MatchPage extends Component {
                 <Box sx={{ flexGrow: 1 }} >
                     <Grid container spacing={2} columns={16}>
                         <Grid item xs={16}>
-                            <div className="error-msg">{`${errorMsg}`}</div>
                             <Button variant="outlined" className="score-choice-record" onClick={this.recordMatch}>{"Record Match"}</Button>
+                            <div className="error-msg">{`${errorMsg}`}</div>
                         </Grid>
                     </Grid>
                 </Box>
