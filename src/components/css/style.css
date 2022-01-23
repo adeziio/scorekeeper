@@ -35,7 +35,7 @@
     color: white !important;
     background-color: #1976d2 !important;
     padding: 20px;
-    height: 100px;
+    height: 180px;
     width: 100%;
 }
 
@@ -62,7 +62,7 @@
 }
 
 .score-choice-increment.neutral {
-    background-color: white;
+    background-color: pink !important;
 }
 
 .score-choice-decrement {

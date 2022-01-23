@@ -7,7 +7,8 @@ export default class MatchPage extends Component {
         super(props);
         this.state = {
             player1: this.props.playerPair.player1,
-            player2: this.props.playerPair.player2
+            player2: this.props.playerPair.player2,
+            winScore: 12
         }
     };
 
@@ -49,29 +50,25 @@ export default class MatchPage extends Component {
     }
 
     incrementPlayer1Score = () => {
-        if (this.state.player1.name !== "" && this.state.player2.name !== "") {
-            this.setState(prevState => ({
-                player1: {
-                    "name": prevState.player1.name,
-                    "score": prevState.player1.score + 1
-                }
-            }), () => { this.updatePlayerPair() });
-        }
+        this.setState(prevState => ({
+            player1: {
+                "name": prevState.player1.name,
+                "score": prevState.player1.score + 1
+            }
+        }), () => { this.updatePlayerPair() });
     }
 
     incrementPlayer2Score = () => {
-        if (this.state.player1.name !== "" && this.state.player2.name !== "") {
-            this.setState(prevState => ({
-                player2: {
-                    "name": prevState.player2.name,
-                    "score": prevState.player2.score + 1
-                }
-            }), () => { this.updatePlayerPair() });
-        }
+        this.setState(prevState => ({
+            player2: {
+                "name": prevState.player2.name,
+                "score": prevState.player2.score + 1
+            }
+        }), () => { this.updatePlayerPair() });
     }
 
     decrementPlayer1Score = () => {
-        if (this.state.player1.name !== "" && this.state.player2.name !== "" && this.state.player1.score !== 0) {
+        if (this.state.player1.score !== 0) {
             this.setState(prevState => ({
                 player1: {
                     "name": prevState.player1.name,
@@ -82,7 +79,7 @@ export default class MatchPage extends Component {
     }
 
     decrementPlayer2Score = () => {
-        if (this.state.player1.name !== "" && this.state.player2.name !== "" && this.state.player2.score !== 0) {
+        if (this.state.player2.score !== 0) {
             this.setState(prevState => ({
                 player2: {
                     "name": prevState.player2.name,
@@ -93,7 +90,7 @@ export default class MatchPage extends Component {
     }
 
     resetPlayersScore = () => {
-        if (this.state.player1.name !== "" && this.state.player2.name !== "" && (this.state.player1.score !== 0 || this.state.player2.score !== 0)) {
+        if (this.state.player1.score !== 0 || this.state.player2.score !== 0) {
             this.setState(prevState => ({
                 player1: {
                     "name": prevState.player1.name,
