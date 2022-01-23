@@ -111,22 +111,6 @@ export default class MatchPage extends Component {
         }
     }
 
-    resetAllFields = () => {
-        if (this.state.player1.name !== "" && this.state.player2.name !== "" && (this.state.player1.score !== 0 || this.state.player2.score !== 0)) {
-            this.setState({
-                player1: {
-                    "name": "",
-                    "score": 0
-                },
-                player2: {
-                    "name": "",
-                    "score": 0
-                },
-                errorMsg: ""
-            }, () => { this.updatePlayerPair() });
-        }
-    }
-
     recordMatch = () => {
         if (this.state.player1.score !== 0 || this.state.player2.score !== 0) {
             if (this.state.player1.name === "" || this.state.player2.name === "") {
@@ -137,7 +121,7 @@ export default class MatchPage extends Component {
             else {
                 this.updatePlayerPair();
                 this.props.recordMatch();
-                this.resetAllFields();
+                this.resetPlayersScore();
             }
         }
     }
