@@ -13,6 +13,19 @@ export default class PlayerPage extends Component {
         }
     };
 
+    sortPlayersByName = () => {
+        this.state.players.sort((a, b) => {
+            if (a.name < b.name) {
+                return -1;
+            }
+            if (a.matches_won > b.matches_won) {
+                return 1;
+            }
+            return 0;
+
+        })
+    }
+
     setCurrentPageMatch = () => {
         this.props.setCurrentPage("match");
     }
@@ -81,6 +94,7 @@ export default class PlayerPage extends Component {
             textAlign: 'center',
             color: theme.palette.text.secondary,
         }));
+        this.sortPlayersByName();
 
         return (
             <>
