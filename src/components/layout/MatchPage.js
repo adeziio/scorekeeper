@@ -6,14 +6,8 @@ export default class MatchPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            player1: {
-                "name": "",
-                "score": 0
-            },
-            player2: {
-                "name": "",
-                "score": 0
-            }
+            player1: this.props.playerPair.player1,
+            player2: this.props.playerPair.player2
         }
     };
 
@@ -148,8 +142,6 @@ export default class MatchPage extends Component {
 
     render() {
         const { players, playerPair } = this.props;
-        console.log(playerPair.player1.score, playerPair.player2.score)
-
 
         return (
             <>

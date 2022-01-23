@@ -148,3 +148,19 @@
     position: relative;
     clear: both;
 }
+
+.bold {
+    font-weight: 700;
+}
+
+.green {
+    color: green;
+}
+
+.red {
+    color: red;
+}
+
+.orange {
+    color: black;
+}
