@@ -98,7 +98,7 @@ export default class PlayerPage extends Component {
                         </Stack>
                     </Container>
                     : null}
-                <Button className="go-to-score-bttn" variant="contained" onClick={this.setCurrentPageMatch}>Start Match</Button>
+                <Button className="go-to-match-bttn" variant="contained" onClick={this.setCurrentPageMatch}>Start Match</Button>
             </>
         )
     }
