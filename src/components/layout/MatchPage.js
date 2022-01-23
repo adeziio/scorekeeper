@@ -8,7 +8,7 @@ export default class MatchPage extends Component {
         this.state = {
             player1: this.props.playerPair.player1,
             player2: this.props.playerPair.player2,
-            winScore: 12
+            errorMsg: ""
         }
     };
 
@@ -22,7 +22,8 @@ export default class MatchPage extends Component {
                 player2: {
                     "name": this.state.player2.name,
                     "score": 0
-                }
+                },
+                errorMsg: ""
             }, () => { this.updatePlayerPair() })
         }
     }
@@ -37,7 +38,8 @@ export default class MatchPage extends Component {
                 player2: {
                     "name": e.target.value,
                     "score": 0
-                }
+                },
+                errorMsg: ""
             }, () => { this.updatePlayerPair() })
         }
     }
@@ -54,7 +56,8 @@ export default class MatchPage extends Component {
             player1: {
                 "name": prevState.player1.name,
                 "score": prevState.player1.score + 1
-            }
+            },
+            errorMsg: ""
         }), () => { this.updatePlayerPair() });
     }
 
@@ -63,7 +66,8 @@ export default class MatchPage extends Component {
             player2: {
                 "name": prevState.player2.name,
                 "score": prevState.player2.score + 1
-            }
+            },
+            errorMsg: ""
         }), () => { this.updatePlayerPair() });
     }
 
@@ -73,7 +77,8 @@ export default class MatchPage extends Component {
                 player1: {
                     "name": prevState.player1.name,
                     "score": prevState.player1.score !== 0 ? prevState.player1.score - 1 : prevState.player1.score
-                }
+                },
+                errorMsg: ""
             }), () => { this.updatePlayerPair() });
         }
     }
@@ -84,7 +89,8 @@ export default class MatchPage extends Component {
                 player2: {
                     "name": prevState.player2.name,
                     "score": prevState.player2.score !== 0 ? prevState.player2.score - 1 : prevState.player2.score
-                }
+                },
+                errorMsg: ""
             }), () => { this.updatePlayerPair() });
         }
     }
@@ -99,7 +105,8 @@ export default class MatchPage extends Component {
                 player2: {
                     "name": prevState.player2.name,
                     "score": 0
-                }
+                },
+                errorMsg: ""
             }), () => { this.updatePlayerPair() });
         }
     }
@@ -114,31 +121,30 @@ export default class MatchPage extends Component {
                 player2: {
                     "name": "",
                     "score": 0
-                }
+                },
+                errorMsg: ""
             }, () => { this.updatePlayerPair() });
         }
     }
 
     recordMatch = () => {
-        if (this.state.player1.name !== "" && this.state.player2.name !== "" && (this.state.player1.score !== 0 || this.state.player2.score !== 0)) {
-            this.setState({
-                player1: {
-                    "name": "",
-                    "score": 0
-                },
-                player2: {
-                    "name": "",
-                    "score": 0
-                }
-            })
-            this.updatePlayerPair();
-            this.props.recordMatch();
-            this.resetAllFields();
+        if (this.state.player1.score !== 0 || this.state.player2.score !== 0) {
+            if (this.state.player1.name === "" || this.state.player2.name === "") {
+                this.setState({
+                    errorMsg: "Select players to record match"
+                })
+            }
+            else {
+                this.updatePlayerPair();
+                this.props.recordMatch();
+                this.resetAllFields();
+            }
         }
     }
 
     render() {
         const { players, playerPair } = this.props;
+        const { errorMsg } = this.state;
 
         return (
             <>
@@ -218,6 +224,7 @@ export default class MatchPage extends Component {
                 <Box sx={{ flexGrow: 1 }} >
                     <Grid container spacing={2} columns={16}>
                         <Grid item xs={16}>
+                            <div className="error-msg">{`${errorMsg}`}</div>
                             <Button variant="outlined" className="score-choice-record" onClick={this.recordMatch}>{"Record Match"}</Button>
                         </Grid>
                     </Grid>
