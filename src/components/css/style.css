@@ -27,8 +27,8 @@
 }
 
 .navbar-item.active {
-    border: 1px solid brown;
-    border-radius: 25px;
+    text-decoration: wavy overline #1976d2;
+    transform: scale(1.2);
 }
 
 .home-choice {
